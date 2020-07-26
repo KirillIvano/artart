@@ -1,12 +1,13 @@
+const {getProdConfigPath} = require('../helpers/paths');
 const {getNameFromArgs} = require('../helpers/args');
 const {runArticleScript} = require('../helpers/runArticleScript');
 const logger = require('../logger');
 
 
 const getBuildProdCommand = articleName => {
-    const configPath = 'webpack.prod.js';
+    const configPath = getProdConfigPath(articleName);
 
-    return `npx webpack --config ${configPath} -- --name=${articleName}`;
+    return `npx webpack --config ${configPath} --env.name=${articleName}`;
 };
 
 const buildProd = () => {

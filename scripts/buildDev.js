@@ -1,14 +1,14 @@
 
 const logger = require('./../logger');
-const {getArticleFilePath} = require('./../helpers/paths');
+const {getDevConfigPath} = require('./../helpers/paths');
 const {getNameFromArgs} = require('./../helpers/args');
 const {runArticleScript} = require('../helpers/runArticleScript');
 
 
 const getBuildCommand = articleName => {
-    const configPath = getArticleFilePath(articleName, 'webpack.dev.js');
+    const configPath = getDevConfigPath(articleName);
 
-    return `npx webpack-dev-server --config ${configPath}`;
+    return `npx webpack-dev-server --config ${configPath} --env.name=${articleName}`;
 };
 
 const buildDev = () => {
