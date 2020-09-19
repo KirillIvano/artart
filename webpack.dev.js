@@ -4,14 +4,12 @@ const webpack = require('webpack');
 
 const common = require('./webpack.config');
 
-const dev = () => ({
+const dev = env => ({
     mode: 'development',
     devtool: 'source-map',
     devServer: {
         historyApiFallback: true,
         hotOnly: true,
-        contentBase: path.resolve(__dirname, 'articles', 'blue'),
-        port: '8080',
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -19,12 +17,11 @@ const dev = () => ({
         },
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
             {
-                test: /\.(c|sa)ss$/,
+                test: /\.(c|sa|sc)ss$/,
                 use: [
                     {
                         loader: 'style-loader',

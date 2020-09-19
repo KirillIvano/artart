@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-
+const webpack = require('webpack');
 
 module.exports = env => ({
     entry: path.join(__dirname, 'articles', env.name, 'index.js'),
@@ -16,20 +15,21 @@ module.exports = env => ({
             minify: false,
             inlineSource: '.(js|css)$',
         }),
-        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+        }),
     ],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js?$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env'],
-                        },
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.html/,

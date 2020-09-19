@@ -3,8 +3,11 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserJs = require('terser-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const commonConfig = require('./webpack.config');
+
 
 const prodConfigs = env => ({
     mode: 'production',
@@ -16,7 +19,6 @@ const prodConfigs = env => ({
     },
     plugins: [
         new ImageminPlugin({
-            // cache: true,
             imageminOptions: {
                 plugins: [
                     ['gifsicle', {interlaced: true}],
@@ -35,11 +37,12 @@ const prodConfigs = env => ({
                 ],
             },
         }),
+        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
     ],
     module: {
         rules: [
             {
-                test: /\.(c|sa|le)ss$/,
+                test: /\.(c|sa|le|sc)ss$/,
                 use: [
                     'style-loader',
                     'css-loader',

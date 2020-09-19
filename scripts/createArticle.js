@@ -21,9 +21,9 @@ const createBaseFiles = articleName => {
 
     const srcPath = getArticlePath(articleName);
 
-    fs.writeFileSync(path.join(srcPath, 'index.js'), 'import \'./../../common/styles.sass\';');
+    fs.writeFileSync(path.join(srcPath, 'index.js'), 'import \'./../../common\';');
     fs.writeFileSync(path.join(srcPath, 'index.html'), '');
-    fs.writeFileSync(path.join(srcPath, 'main.sass'), '');
+    fs.writeFileSync(path.join(srcPath, 'main.scss'), '');
 
     logger.successLog('Файлы созданы');
 };
