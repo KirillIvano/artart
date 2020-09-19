@@ -1,0 +1,12 @@
+@import "./../../common/vars.scss";
+
+.main-image {
+    background-image: url("https://www.oright.inc/assets/images/about/concept/concept_BN.jpg");
+    background-position-y: 100%;
+}
+
+@media all and (max-width: $screen_md) {
+    .main-image {
+        background-position-y: -100px;
+    }
+}

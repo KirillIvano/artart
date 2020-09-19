@@ -1,0 +1,31 @@
+@import "./../../common/vars.scss";
+
+
+.main-image {
+    background-image: url("./images/charityBG.jpg");
+    background-position-y: 80%;
+}
+
+.videos-section {
+    .videos-section__row {
+        margin-top: $pad8;
+    }
+}
+
+.carousel {
+    margin-top: $pad6;
+
+    background: linear-gradient(180deg, $firm 0, $firm 50%, transparent 0, transparent 100%);
+}
+
+.carousel-item {
+    padding: $pad6;
+    margin-top: $pad8;
+
+    background: white;
+
+    .carousel-item__year {
+        color: $firm;
+        padding-bottom: $pad3;
+    }
+}
