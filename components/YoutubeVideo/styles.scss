@@ -1,0 +1,89 @@
+@import "./../../common/vars.scss";
+
+.videoPreview {
+    position: relative;
+    overflow: hidden;
+
+    margin-top: $pad4;
+    margin-bottom: $pad4;
+    padding-bottom: 56.25%;
+
+    outline: none;
+
+    width: 100%;
+
+    cursor: pointer;
+
+    .video, .videoImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        width: 100%;
+        height: 100%;
+    }
+
+    .videoImage {
+        display: block;
+
+        transform: scale(1);
+        transform-origin: center;
+        will-change: transform;
+        transition: transform .5s ease-in-out;
+    }
+}
+
+.videoCaption {
+    padding: 12px;
+
+    text-align: center;
+    color: $dark_gray;
+    font-size: $font_sm;
+}
+
+.videoPreview.played::after, .videoPreview.played::before {
+    display: none;
+}
+
+.videoPreview::after, .videoPreview::before {
+    content: "";
+    position: absolute;
+}
+.videoPreview::before {
+    z-index: 1;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .2;
+
+    transition: opacity .5s ease-in-out;
+}
+.videoPreview::after {
+    z-index: 2;
+
+    background-image: url("./images/logoVideo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100px;
+    height: 60px;
+    top: 0;
+
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -30px;
+}
+
+.videoPreview:hover, .videoPreview:focus {
+    &::before {
+        opacity: .7;
+    }
+    .videoImage {
+        transform: scale(1.1);
+    }
+}
