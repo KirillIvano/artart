@@ -1,0 +1,137 @@
+@import "./vars.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    
+    box-sizing: border-box;
+
+    font-family: inherit;
+}
+
+body {
+    background: $light_gray;
+
+    padding-top: $pad10;
+    padding-bottom: $pad10;
+
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+}
+
+.row_wider {
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.col_wider {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.page-headline__container {
+    padding-bottom: $pad10;
+    padding-top: $pad10;
+
+    .page-theme, .page-headline {
+        text-align: center;
+        font-family: $merri;
+        font-weight: normal;
+    }
+
+    .page-theme {
+        font-size: $font_sm;
+        color: $dark_gray;
+    }
+    .page-headline {
+        margin-top: $pad2;
+        font-size: $font_xxl;
+        color: $black;
+    }
+}
+
+
+// а шо, выглядит хайпово
+.parallax {
+    width: 100%;
+
+    padding-bottom: 25%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.simple-text {
+    line-height: 1.5;
+    color: $dark_gray;
+
+    font-size: $font_xs;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+}
+
+.section {
+    padding-top: $pad12;
+    padding-bottom: $pad12;
+
+    .section__headline {
+        position: relative;
+
+        padding-bottom: $pad9;
+        padding-top: $pad6;
+
+        font-weight: normal;
+        font-size: $font_xl;
+        font-family: 'Merriweather', serif;
+    }
+
+    .section__headline::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -20px;
+        width: 80px;
+        height: 80px;
+
+        z-index: -1;
+        
+        border-radius: 50%;
+        background: repeating-linear-gradient(-45deg, $medium_gray 0px, $medium_gray 2px, transparent 0, transparent 6px);
+    }
+
+    .section__paragraph {
+        margin-bottom: $pad3;
+    }
+}
+
+@keyframes blick {
+    from {
+        background: $medium_gray;
+    }
+    to{
+        background-color: white;
+    }
+}
+
+
+@media all and (max-width: $screen_md) {
+    .page-headline__container {
+        .page-headline {
+            font-size: $font_xl;
+        }
+    }
+
+    .parallax {
+        padding-bottom: 200px;
+    }
+
+    .section {
+        .section__headline {
+            font-size: $font_lg;
+        }
+    }
+}
