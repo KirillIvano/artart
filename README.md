@@ -4,7 +4,7 @@
 Далее запустить
 
 ```cmd
-    git clone <ссылка на э>
+    git clone https://github.com/KirillIvano/artart
     cd artart
     npm run create -- --name=<имя статьи>
 ```
@@ -28,7 +28,9 @@
 ```
 
 ## Прод
-
+```cmd
+    npm run run-prod -- --name=<имя статьи>
+```
 Генерирует оптимизированную сборку в директории /articles/<имя статьи>/dist 
 Отсюда необходимо взять файл index.html, это скомпилированные css/js/html  
 Также, здесь в поддиректории /images будут все использованные картинки с названием в виде 
