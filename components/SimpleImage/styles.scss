@@ -1,0 +1,19 @@
+@import "./../../common/vars.scss";
+
+.tooltip {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    margin-top: $pad4;
+    margin-bottom: $pad4;
+
+    .tooltip__image {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+    }
+}
