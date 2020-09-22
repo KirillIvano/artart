@@ -1,4 +1,4 @@
-import '~/articles/charity/node_modules/flexboxgrid2';
+import 'flexboxgrid2';
 
 import '../../components/SimpleImage';
 import './../../components/YoutubeVideo';
